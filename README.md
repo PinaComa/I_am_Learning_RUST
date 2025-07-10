@@ -1,7 +1,9 @@
 # I_am_Learning_RUST
-#### 🧠 Why Ownership Matters in Rust
-Rust doesn’t use a garbage collector like Java or C#. Instead, it uses ownership to manage memory safely and efficiently — all at compile time.
-###🚫 Garbage Collector vs 🛠️ Manual Memory vs 🦀 Rust Ownership
+#### 🧠 Why Ownership Matters in Rust 
+
+Rust doesn’t use a garbage collector like Java or C#. Instead, it uses ownership to manage memory safely and efficiently — all at compile time. //
+
+### 🚫 Garbage Collector vs 🛠️ Manual Memory vs 🦀 Rust Ownership
 Approach	Pros	Cons
 Garbage Collector	Easy to use, fewer memory bugs	Slower runtime, unpredictable pauses
 Manual Memory (C/C++)	Full control, fast runtime	Error-prone, hard to manage
