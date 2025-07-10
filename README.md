@@ -36,17 +36,20 @@ Rules:
 You can have many immutable borrows.
 You can have only one mutable borrow at a time.
 This prevents data races and unsafe access.
-🧱 Stack vs Heap
+
+#### 🧱 Stack vs Heap
 Rust stores data in two places:
 Stack: Fast, fixed-size, used for simple types.
 Heap: Flexible, slower, used for dynamic data like String.
 Rust decides where to store data based on its size and lifetime.
-🧹 No Garbage Collector, Still Safe
+
+#### 🧹 No Garbage Collector, Still Safe
 Rust uses compile-time checks to ensure memory safety:
 No use-after-free
 No double-free
 No null pointers
 No data races
 You get errors at compile time instead of bugs at runtime.
-🧨 Unsafe Code (Optional)
+
+#### 🧨 Unsafe Code (Optional)
 Rust allows you to opt out of safety with the unsafe keyword — but only when absolutely necessary. Most Rust code stays safe by default.
