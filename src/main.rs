@@ -1,3 +1,5 @@
+/* I am following Bogdan's videos */
+
 fn main() {
     let mut x = 5;
     println!("The value of x is: {}", x);
@@ -107,7 +109,7 @@ fn loops() {
     for element in arr.iter() {
         println!("Element: {}", element);
     }
-    for number in (1..4) {
+    for number in 1..4 {
         // Range from 1 to 3 (exclusive of 4)
         println!("(Range from 1 to 3 (exclusive of 4) Number: {}", number);
     }
