@@ -20,14 +20,15 @@ This means Rust automatically frees memory when it’s no longer needed — no d
 ### 🔁 Moving vs Copying
 Simple types like i32 are copied when assigned.
 Complex types like String are moved — meaning the original variable becomes invalid.
-rust
+```rust
 let s1 = String::from("hello");
 let s2 = s1; // s1 is now invalid
+````
 If you want to keep both, you need to clone:
-rust
+```rust
 let s1 = String::from("hello");
 let s2 = s1.clone(); // deep copy
-
+```
 #### 🧬 Borrowing & References
 Rust lets you borrow values instead of taking ownership:
 &T → Immutable borrow (read-only)
