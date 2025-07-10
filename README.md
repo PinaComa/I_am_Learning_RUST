@@ -110,3 +110,24 @@ let s = gives_ownership(); // ✅ Now 's' owns the returned String
 println!("{}", s);
 ```
 📌 This transfer mechanism helps Rust track and control memory usage without needing a garbage collector.
+
+#### 🔁 Borrowing & References
+
+Rust allows you to use values **without taking ownership** by borrowing them through references.
+
+- `&T` → Immutable borrow (read-only access)
+- `&mut T` → Mutable borrow (read/write access)
+
+📌 **Why it matters**: Borrowing lets functions access data without consuming it, so you can keep using the original variable afterward.
+
+```rust
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+
+let s1 = String::from("hello");
+let len = calculate_length(&s1); // ✅ Borrowing
+println!("Length: {}", len);
+```
+Here, calculate_length borrows s1 immutably — meaning s1 stays valid and usable even after the function call.
+
