@@ -1,7 +1,7 @@
 # I_am_Learning_RUST
 #### 🧠 Why Ownership Matters in Rust 
 
-Rust doesn’t use a garbage collector like Java or C#. Instead, it uses ownership to manage memory safely and efficiently — all at compile time. //
+Rust doesn’t use a garbage collector like Java or C#. Instead, it uses ownership to manage memory safely and efficiently — all at compile time.
 
 ### 🚫 Garbage Collector vs 🛠️ Manual Memory vs 🦀 Rust Ownership
 Approach	Pros	Cons
@@ -9,13 +9,15 @@ Garbage Collector	Easy to use, fewer memory bugs	Slower runtime, unpredictable p
 Manual Memory (C/C++)	Full control, fast runtime	Error-prone, hard to manage
 Rust Ownership	Safe, fast, no GC needed	Steeper learning curve, compile-time rules
 Rust gives you manual-level performance with garbage-collector-level safety — thanks to ownership.
-##📦 What Is Ownership?
+
+### 📦 What Is Ownership?
 Ownership is Rust’s way of tracking who “owns” a piece of memory. It follows three golden rules:
 Each value has one owner
 Only one owner at a time
 When the owner goes out of scope, the value is dropped (freed)
 This means Rust automatically frees memory when it’s no longer needed — no delete, no free, no GC.
-#🔁 Moving vs Copying
+
+### 🔁 Moving vs Copying
 Simple types like i32 are copied when assigned.
 Complex types like String are moved — meaning the original variable becomes invalid.
 rust
@@ -25,7 +27,8 @@ If you want to keep both, you need to clone:
 rust
 let s1 = String::from("hello");
 let s2 = s1.clone(); // deep copy
-🧬 Borrowing & References
+
+#### 🧬 Borrowing & References
 Rust lets you borrow values instead of taking ownership:
 &T → Immutable borrow (read-only)
 &mut T → Mutable borrow (read/write)
