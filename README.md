@@ -4,10 +4,11 @@
 Rust doesn’t use a garbage collector like Java or C#. Instead, it uses ownership to manage memory safely and efficiently — all at compile time.
 
 ### 🚫 Garbage Collector vs 🛠️ Manual Memory vs 🦀 Rust Ownership
-Approach	Pros	Cons
-Garbage Collector	Easy to use, fewer memory bugs	Slower runtime, unpredictable pauses
-Manual Memory (C/C++)	Full control, fast runtime	Error-prone, hard to manage
-Rust Ownership	Safe, fast, no GC needed	Steeper learning curve, compile-time rules
+Approach	+Pros	-Cons
+Garbage Collector	  + Easy to use, fewer memory bugs	  - Slower runtime, unpredictable pauses
+Manual Memory (C/C++)	+ Full control, fast runtime	    - Error-prone, hard to manage
+Rust Ownership	 + Safe, fast, no GC needed	Steeper learning curve, - compile-time rules
+
 Rust gives you manual-level performance with garbage-collector-level safety — thanks to ownership.
 
 ### 📦 What Is Ownership?
@@ -17,26 +18,6 @@ Only one owner at a time
 When the owner goes out of scope, the value is dropped (freed)
 This means Rust automatically frees memory when it’s no longer needed — no delete, no free, no GC.
 
-### 🔁 Moving vs Copying
-Simple types like i32 are copied when assigned.
-Complex types like String are moved — meaning the original variable becomes invalid.
-```rust
-let s1 = String::from("hello");
-let s2 = s1; // s1 is now invalid
-````
-If you want to keep both, you need to clone:
-```rust
-let s1 = String::from("hello");
-let s2 = s1.clone(); // deep copy
-```
-#### 🧬 Borrowing & References
-Rust lets you borrow values instead of taking ownership:
-&T → Immutable borrow (read-only)
-&mut T → Mutable borrow (read/write)
-Rules:
-You can have many immutable borrows.
-You can have only one mutable borrow at a time.
-This prevents data races and unsafe access.
 
 #### 🧱 Stack vs Heap
 Rust stores data in two places:
@@ -46,23 +27,20 @@ Rust decides where to store data based on its size and lifetime.
 
 #### 🧹 No Garbage Collector, Still Safe
 Rust uses compile-time checks to ensure memory safety:
-No use-after-free
-No double-free
-No null pointers
-No data races
+No use-after-free, 
+No double-free, 
+No null pointers, 
+No data races, 
 You get errors at compile time instead of bugs at runtime.
 
 #### 🧨 Unsafe Code (Optional)
 Rust allows you to opt out of safety with the unsafe keyword — but only when absolutely necessary. Most Rust code stays safe by default.
 
 
-#### 🧠 Ownership & Move Semantics
+### 🦀 Rust Ownership and Borrowing 
+this is for understanding ownership, borrowing, copying, moving, and references. It includes annotated examples that demonstrate how Rust handles memory safety without a garbage collector.
 
-
-
-#### 🦀 Rust Ownership and Borrowing Demo
-This project is a Rust playground for understanding ownership, borrowing, copying, moving, and references. It includes annotated examples that demonstrate how Rust handles memory safety without a garbage collector.
-📚 Concepts Covered 
+#### 📚 Concepts Covered 
 
 ✅ Ownership & Move semantics
 
@@ -76,19 +54,13 @@ This project is a Rust playground for understanding ownership, borrowing, copyin
 
 ✅ References and data race prevention
 
-#### 🚀 Getting Started
-To run this project:
-```bash
-cargo run
-```
-Or paste the code into Rust Playground for immediate testing.
 #### 🧠 Key Sections Explained
 ### 💼 Ownership Transfer
 ```rust
 fn takes_ownership(some_string: String) { /* ownership moves here */ }
 ```
 When a String is passed to a function, its ownership transfers. You cannot use it afterward unless it’s returned.
-###🌀 Cloning vs Copying
+### 🌀 Cloning vs Copying
 ```rust
 let s1 = String::from("Rust");
 let s2 = s1.clone(); // Deep copy
