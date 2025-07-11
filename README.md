@@ -117,10 +117,15 @@ change(&mut s8);
 Only one mutable reference is allowed at a time to avoid data races. Rust enforces this at compile time.
 ### 🛡️ Safety Rules Enforced by Rust
 ❌ You can't have a mutable reference if immutable references are active.
+
 ✅ Multiple immutable references are allowed.
+
 ✅ Mutable references can be created after all immutable references go out of scope.
-####🧪 Example Output
+
+#### 🧪 Example Output
+
 ****This is the copy or move function - or ownership !****
+```
 String s1: Rust
 String s2: Rust is an awesome language
 x: 5, y: 5
@@ -133,6 +138,6 @@ Modified s6: hellooo - modified
 The length of 'hellooo' is 7
 s7: hellooo
 Modified s8: hello - modified
-
+```
 
 
