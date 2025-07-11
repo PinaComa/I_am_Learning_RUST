@@ -60,23 +60,30 @@ Rust allows you to opt out of safety with the unsafe keyword — but only when a
 
 
 
-🦀 Rust Ownership and Borrowing Demo
+#### 🦀 Rust Ownership and Borrowing Demo
 This project is a Rust playground for understanding ownership, borrowing, copying, moving, and references. It includes annotated examples that demonstrate how Rust handles memory safety without a garbage collector.
-📚 Concepts Covered
+📚 Concepts Covered 
+
 ✅ Ownership & Move semantics
+
 ✅ Cloning and the Copy trait
+
 ✅ Borrowing (&T) and mutable borrowing (&mut T)
+
 ✅ Function-based ownership transfer
+
 ✅ Shadowing and variable scope
+
 ✅ References and data race prevention
-🚀 Getting Started
+
+#### 🚀 Getting Started
 To run this project:
 ```bash
 cargo run
 ```
 Or paste the code into Rust Playground for immediate testing.
 #### 🧠 Key Sections Explained
-###💼 Ownership Transfer
+### 💼 Ownership Transfer
 ```rust
 fn takes_ownership(some_string: String) { /* ownership moves here */ }
 ```
