@@ -15,8 +15,6 @@ This module showcases foundational Rust programming concepts while following Bog
 - [Control Flow](#control-flow)
 - [Loops](#loops)
 - [Notable Examples](#notable-examples)
-- [How to Run](#how-to-run)
-- [Purpose](#purpose)
 
 ---
 
