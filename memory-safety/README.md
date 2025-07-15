@@ -10,12 +10,17 @@
 - [📦 What Is Ownership?](#-what-is-ownership)
 - [🧱 Stack vs Heap](#-stack-vs-heap)
 - [🧹 No Garbage Collector, Still Safe](#-no-garbage-collector-still-safe)
-- [🧨 Unsafe Code (Optional)](#-unsafe-code-optional)
+- [🧨 Unsafe Code](#-unsafe-code)
 - [🔧 Borrowing & Mutable Access](#-borrowing--mutable-access)
 - [🧾 Shadowing](#-shadowing)
 - [🛑 Dangling References](#-dangling-references)
+- [✂️ Slices & Graphemes](#-slices--graphemes)
+- [🔍 Substrings & Subarrays](#-substrings--subarrays)
+- [🧪 Function Using String Slice](#-function-using-string-slice)
+- [✅ How to Run](#-how-to-run)
 - [📚 Key Examples](#-key-examples)
 - [🧪 Sample Output](#-sample-output)
+
 
 
 ---
@@ -30,6 +35,11 @@
 - Shadowing and scope  
 - Data safety via compile-time enforcement  
 - Why Rust avoids dangling references
+- String types and manipulation  
+- Unicode slices, grapheme clusters  
+- Function signatures with references and slices  
+- Safe UTF-8 slicing and multilingual string handling  
+
 
 Each section is explained with code examples and guiding comments.
 
@@ -43,13 +53,13 @@ Rust doesn’t use a garbage collector. Instead, it uses ownership to manage mem
 
 ## 🚫 Memory Models Compared
 
-| Approach           | ✅ Pros                          | ❌ Cons                               |
-|--------------------|----------------------------------|---------------------------------------|
-| Garbage Collector  | Easy memory management           | Pauses, slower runtime                |
-| Manual Memory (C)  | High performance, full control   | Prone to memory bugs                  |
-| Rust Ownership     | Safe, fast, no GC required       | Learning curve, strict rules          |
+| Model               | ✅ Pros                       | ❌ Cons                      |
+|--------------------|-------------------------------|------------------------------|
+| Garbage Collector  | Simple, automatic cleanup      | Slower, unpredictable pauses |
+| Manual (e.g. C)    | High control, fast             | Prone to memory bugs         |
+| Rust Ownership     | Fast, safe, compile-time check | Stricter syntax, learning curve |
 
-Rust offers manual-level speed with GC-level safety — through ownership.
+Rust nails performance and safety by enforcing ownership rules.
 
 ---
 
@@ -61,6 +71,11 @@ Ownership is Rust’s way of tracking who “owns” a value in memory.
 - Ownership moves when passed between variables or functions  
 - When the owner goes out of scope, the value is **dropped** automatically
 
+```rust
+fn takes_ownership(s: String) {
+    println!("{}", s); // s is dropped here
+}
+``` 
 This makes memory cleanup deterministic and safe.
 
 ---
@@ -86,7 +101,7 @@ Rust prevents:
 
 ---
 
-## 🧨 Unsafe Code (Optional)
+## 🧨 Unsafe Code
 
 Rust lets you opt into unsafe blocks with `unsafe` — but only if you really need them. Most of the language remains safe and checked.
 
@@ -138,6 +153,81 @@ Rust forbids references to data that would be dropped.
 
 ---
 
+## ✂️ Slices & Graphemes
+Rust lets you slice safely — even in Unicode-rich strings:
+```rust
+let s = "नमस्ते";
+for g in s.graphemes(true) {
+    println!("{}", g);
+}
+```
+Requires the unicode-segmentation crate:
+```toml
+unicode-segmentation = "1.10.0"
+```
+Also works with:
+- .bytes() — raw UTF-8 bytes
+- .chars() — Unicode code points
+- .graphemes() — human-readable clusters
+
+Covers how Rust lets you safely segment strings—even across multilingual character sets.
+
+---
+
+## 🔍 Substrings & Subarrays
+Search for text or sum in an array:
+```rust
+find_substr_pos(&text, "sun");
+find_subarray(&[1, 2, 3], 6);
+```
+Returns either index or fallback — and shows how to work with slices dynamically.
+
+---
+
+## 🔡 String Types & Manipulation
+Demonstrates: String, &str, .to_string(), .to_owned()
+Function: string_types(), manipulate_string()
+
+Covers fundamental string creation, mutation, and formatting techniques.
+
+---
+
+## 🔗 String Concatenation
+Format: format!()
+Operator: +
+Macros: concat!()
+Array join: ["a", "b"].concat()
+Function: concatenate_strings() demonstrates each approach with pros and cons.
+
+---
+
+## 🌐 Unicode Exploration
+Function: string_slicing()
+Includes:
+Iterating over bytes: .bytes()
+Characters: .chars()
+Graphemes: .graphemes(true)
+Features multilingual support including Hindi (नमस्ते) and emoji (🦀)—showing off Rust’s precise Unicode handling.
+
+---
+
+## 🧪 Function Using String Slice
+my_function(&str) -> String
+You can pass both string literals and owned strings, showing flexibility in Rust’s type system.
+
+---
+
+## ✅ How to Run
+``` bash
+cargo build
+cargo run
+```
+Make sure the dependencies are set, and you're good to go!
+
+---
+
+
+
 ### 📚 Key Examples
 ## 💼 Ownership Transfer
 ```rust
@@ -156,7 +246,6 @@ let x = 5;
 let y = x; // Copy trait
 ```
 String must be cloned, but primitives copy by default.
-
 
 ---
 
@@ -187,3 +276,6 @@ First word: hello
 First word: hello, Second word: world
 Slice of the array: [1, 2]
 ```
+
+
+
