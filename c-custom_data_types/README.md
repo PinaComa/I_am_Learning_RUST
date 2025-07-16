@@ -1,4 +1,4 @@
-# 🦀 Rust Struct Playground
+# 🦀 Rust Struct
 
 how to define and use structs, methods, and associated functions in Rust—perfect 
 
