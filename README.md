@@ -1,37 +1,38 @@
 # 🦀 I_am_Learning_RUST
 
----
+Welcome to my personal Rust study roadmap! This repository tracks my hands-on journey through Rust’s core concepts inspired by [Bogdan’s Let's Get Rusty YouTube series](https://youtube.com/LetsGetRusty) and the official *The Rust Programming Language* book.
 
-This repository is a structured roadmap for learning Rust. Each folder dives into a specific topic, paired with code samples and explanations to reinforce understanding.
-
----
-
-| Section Folder             | Description                                                              |
-|----------------------------|---------------------------------------------------------------------------|
-| [01_foundations](./01_foundations/README.md)           | Core syntax and beginner-friendly examples                             |
-| [02_memory_safety](./02_memory_safety/README.md)       | Introduction to ownership and safe memory practices                    |
-| [03_custom_types](./03_custom_types/README.md)         | Defining structs and enums for expressive and type-safe design         |
-| [04_pattern_matching](./04_pattern_matching/README.md) | Control flow with `match`, `Option<T>`, and expressive pattern usage   |
-| [05_collections](./05_collections/README.md)           | Working with vectors, hash maps, enums, and collection manipulation    |
+Each folder contains annotated examples, personal notes, and progressively more advanced concepts. Think of it as my Rust journal 🔍✨
 
 ---
 
-## 📚 How to Use
+## 📚 Folder Structure & Topics
 
-Each folder contains topic-specific `README.md` files and sample `main.rs` implementations.
+| Folder Name                                             | Description                                                                 |
+|---------------------------------------------------------|-----------------------------------------------------------------------------|
+| [`01_variables_control_flow_and_loops`](./01_variables_control_flow_and_loops/)             | Covers variables, mutability, shadowing, basic types, functions, conditionals, loops |
+| [`02_memory_strings_and_slice_mechanics`](./02_memory_strings_and_slice_mechanics/)         | Ownership, borrowing, references, string slicing, Unicode, subarrays, substrings |
+| [`03_structs_methods_and_debugging`](./03_structs_methods_and_debugging/)                   | Structs (named and tuple), `impl` blocks, associated functions, the Debug trait |
+| [`04_enums_option_and_control_flow_patterns`](./04_enums_option_and_control_flow_patterns/) | Enums with variants, nested pattern matching, Option enum, control flow with match and `if let` |
+| [`05_vectors_enums_and_hashmaps`](./05_vectors_enums_and_hashmaps/)                         | Working with vectors, iteration, heterogeneous data with enums, key-value storage with HashMap |
 
-Sample workflow:
+---
 
+## 🛠 Tech & Setup
+
+- Language: [Rust](https://www.rust-lang.org/)
+- Build tool: Cargo
+- Try out a sample:
 ```bash
-cd 03_custom_types
-cargo run
+  cd 03_structs_methods_and_debugging
+  cargo run
 ```
 
+---
 
-#### 🔭 Upcoming Topics
-New chapters are on the horizon! Possible additions include:
-Error handling with Result<T, E>
-Lifetimes and borrowing nuances
+### What’s Next?
+Upcoming chapters (soon to be added):
+Error handling strategies
 Traits and generics
-Multithreading in Rust
-Web development using Rocket or Axum
+Concurrency and multithreading
+Building a CLI and web server project
