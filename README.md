@@ -15,6 +15,8 @@ Each folder contains annotated examples, personal notes, and progressively more 
 | [`03_structs_methods_and_debugging`](./03_structs_methods_and_debugging/)                   | Structs (named and tuple), `impl` blocks, associated functions, the Debug trait |
 | [`04_enums_option_and_control_flow_patterns`](./04_enums_option_and_control_flow_patterns/) | Enums with variants, nested pattern matching, Option enum, control flow with match and `if let` |
 | [`05_vectors_enums_and_hashmaps`](./05_vectors_enums_and_hashmaps/)                         | Working with vectors, iteration, heterogeneous data with enums, key-value storage with HashMap |
+| [`06_modules`](./06_modules/)                                                               | How to split logic across files with `mod`, structure with `lib.rs`, re-exports, visibility (`pub`), and crate organization |
+
 
 ---
 
